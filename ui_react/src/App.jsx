@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/auth/Home';
+import Course from './pages/shared/Course';
+import Admindashboard from './pages/shared/Userdashboard';
+import Weblayout from './layout/Weblayout'; // Import Weblayout
 
-function App() {
+const App = () => {
   return (
-    <div>App</div>
-  )
-}
-
-export default App
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Weblayout />}>
+          <Route index element={<Home />} />
+          <Route path="course" element={<Course />} />
+        </Route>
+        <Route path="/Admindashboard" element={<Admindashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+export default App;
